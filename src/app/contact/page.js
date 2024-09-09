@@ -1,5 +1,14 @@
 export default function contact(){
     return(
-        <>hayoo kepo yaa</>
+        <>
+        <h2>Get in touch</h2>
+        <p>lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum 
+            lorem ipsum lorem ipsum
+            </p>
+        <div>
+            <div>Kiri</div>
+            <div>Kanan</div>
+        </div>
+        </>
     );
 }
