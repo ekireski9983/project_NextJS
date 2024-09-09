@@ -11,6 +11,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        {/* Add the font to the head */}
+        <style>{inter.styles}</style>
+      </head>
       <body className={inter.className}>
         <header className="py-2">
           <nav className="w-full">
@@ -18,8 +22,8 @@ export default function RootLayout({ children }) {
               <div className="flex flex-wrap items-center justify-between">
                 <a href="/">logo</a>
                 <div>
-                  <ul className="flex flex-rowd gap-6">
-                  <li>
+                  <ul className="flex flex-row gap-6">
+                    <li>
                       <a href="/">home</a>
                     </li>
                     <li>
@@ -38,9 +42,9 @@ export default function RootLayout({ children }) {
           </nav>
         </header>
         <main className="max-w-5xl max-auto px-6 md:px-12 xl:px-6">
-        {children}
+          {children}
         </main>
-        </body>
-    </html>
-  );
+      </body>
+    </html>
+  );
 }
