@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
           <nav className="w-full">
             <div className="mx-w-5xl max-auto px-6 md:px-12 xl:px-6">
               <div className="flex flex-wrap items-center justify-between">
-                <a href="/">logo</a>
+                <a href="/">LOGO</a>
                 <div>
                   <ul className="flex flex-row gap-6">
                     <li>
