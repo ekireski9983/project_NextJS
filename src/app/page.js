@@ -18,8 +18,6 @@ export default function Home() {
           <ul className="flex items-center gap-5">
             <li>
               <a
-                href="javascript:;"
-                className="flex items-center gap-2 cursor-pointer group"
               >
                 <svg
                   width="20"
@@ -42,7 +40,6 @@ export default function Home() {
             </li>
             <li>
               <a
-                href="javascript:;"
                 className="flex items-center gap-2 cursor-pointer group"
               >
                 <svg
@@ -57,7 +54,6 @@ export default function Home() {
             </li>
             <li>
               <a
-                href="javascript:;"
                 className="flex items-center gap-2 cursor-pointer group"
               >
                 <svg
@@ -91,7 +87,6 @@ export default function Home() {
         </p>
         <div className="flex items-center justify-center gap-5">
           <a
-            href="javascript:;"
             className="p-3 rounded-full border border-solid border-gray-300 group bg-gray-50 transition-all duration-500 hover:bg-indigo-700 hover:border-indigo-700"
           >
             <svg
@@ -131,7 +126,6 @@ export default function Home() {
             </svg>
           </a>
           <a
-            href="javascript:;"
             className="p-3 rounded-full border border-solid border-gray-300 group bg-gray-50 transition-all duration-500 hover:bg-indigo-700 hover:border-indigo-700"
           >
             <svg
@@ -161,7 +155,6 @@ export default function Home() {
             </svg>
           </a>
           <a
-            href="javascript:;"
             className="p-3 rounded-full border border-solid border-gray-300 group bg-gray-50 transition-all duration-500 hover:bg-indigo-700 hover:border-indigo-700"
           >
             <svg
@@ -181,7 +174,6 @@ export default function Home() {
             </svg>
           </a>
           <a
-            href="javascript:;"
             className="p-3 rounded-full border border-solid border-gray-300 group bg-gray-50 transition-all duration-500 hover:bg-indigo-700 hover:border-indigo-700"
           >
             <svg
@@ -204,7 +196,6 @@ export default function Home() {
             </svg>
           </a>
           <a
-            href="javascript:;"
             className="p-3 rounded-full border border-solid border-gray-300 group bg-gray-50 transition-all duration-500 hover:bg-indigo-700 hover:border-indigo-700"
           >
             <svg
