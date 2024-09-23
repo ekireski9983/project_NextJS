@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 
 const ItemCard = ({label, value})=>{
     return (
-        <div className='flex gap-4 bg-white  rounded-md'>
+        <div className='flex gap-4 bg-white  rounded-md m-2 p-2'>
             <div>{ label }</div>
             <div>{ value }</div>
         </div>
@@ -65,11 +65,23 @@ export default function Contact(){
                         </div>
                     </div>
                 </div>
-                <div className="md:w-1/3 border">
+                <div className="md:w-1/3">
 
                 {
                     !isLoading && Object.keys(data.location).map(key => {
                        return <ItemCard label={key} value={data.location[key]}/>
+                    })
+                }
+
+                {
+                    !isLoading && Object.keys(data.phone).map(key => {
+                       return <ItemCard label={key} value={data.phone[key]}/>
+                    })
+                }
+
+                {
+                    !isLoading && Object.keys(data.social).map(key => {
+                       return <ItemCard label={key} value={data.social[key]}/>
                     })
                 }
                 
