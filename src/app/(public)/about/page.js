@@ -1,7 +1,8 @@
-export default function profile () {
-    return(
-        <div>
-        test about
-        </div>
+export default function About() {
+    return (
+      <div>
+        tes about
+      </div>
     );
 }
+  
