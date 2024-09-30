@@ -17,7 +17,7 @@ export default async function handler(
         res.json({ data: allWork });
         break;
     default:
-        res.json({ message: 'page not found' });
-    break;
+            res.status(404).json({ message: 'pange not found' });
+        break;
     }
   }
