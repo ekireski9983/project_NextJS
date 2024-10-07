@@ -35,8 +35,10 @@ export default function AdminWork() {
         body: JSON.stringify(data),
       })
       let resData = await res.json()
-
-      alert("Data berhasil disimpan dengan id "+ resData.data.insertedId)
+      if(!resData.data){
+        throw Error(resData.message)
+      }
+      alert("Data berhasil disimpan dengan id \n"+ resData.data.insertedId)
     }catch(err){
       console.error("ERR", err.message)
       alert(err.message)
@@ -116,7 +118,9 @@ export default function AdminWork() {
               className="w-full border my-input-text"/>
         </div>
 
-        <button className="mx-1 h-9 items-center justify-center px-4 rounded-md bg-blue-500 text-white">
+        <button 
+        onClick={onSubmitData}
+        className="mx-1 h-9 items-center justify-center px-4 rounded-md bg-blue-500 text-white">
             <label>Submit Data</label>
         </button>
       </Card>
