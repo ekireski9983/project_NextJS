@@ -105,10 +105,6 @@ export default function AdminWork() {
         <button className="mx-1 h-9 items-center justify-center px-4 rounded-md bg-blue-500 text-white">
             <label>Submit Data</label>
         </button>
-
-        <button className="mx-1 h-9 items-center justify-center px-4 rounded-md bg-red-500 text-white">
-            <label>Reset data</label>
-        </button>
       </Card>
       
       <Card title="List of Work" style="mt-5">
