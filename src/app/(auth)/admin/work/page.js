@@ -102,8 +102,12 @@ export default function AdminWork() {
               className="w-full border my-input-text"/>
         </div>
 
-        <button className="mx-1 h-9 items-center justify-center px-4  rounded-md bg-amber-500">
+        <button className="mx-1 h-9 items-center justify-center px-4  rounded-md bg-blue-500 text-white">
             <label>Submit Data</label>
+        </button>
+
+        <button className="mx-1 h-9 items-center justify-center px-4  rounded-md bg-red-500 text-white">
+            <label>reset data</label>
         </button>
       </Card>
       
