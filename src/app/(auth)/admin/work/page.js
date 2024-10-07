@@ -50,7 +50,11 @@ export default function Adminwork(){
                         </div>
                         <div className="w-full">
                             <label>Location</label>
-                            <textarea className="border my-input-text w-full"></textarea>
+                            <select class="my-input-text w-full">
+                           <option>New Mexico</option>
+                           <option>Missouri</option>
+                           <option>Texas</option>
+                         </select>
                         </div>
                         <div className="w-full py-2">
                             <button className="mx-1 h-9 items-center justify-center px-4  rounded-md bg-amber-500">
