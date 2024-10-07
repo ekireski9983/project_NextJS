@@ -28,6 +28,20 @@ export default function AdminWork() {
   const inputHandler= (e) =>{
     setData({...data, [e.target.name]: e.target.value })
   }
+  async function onSubmitData() {
+    try{
+      let res = await fetch('/api/work', {
+        method:'POST',
+        body: JSON.stringify(data),
+      })
+      let resData = await res.json()
+
+      alert("Data berhasil disimpan dengan id "+ resData.data.insertedId)
+    }catch(err){
+      console.error("ERR", err.message)
+      alert(err.message)
+    }
+}
 
   return (<>
       <Card title="Work Form" className="pb-5">
