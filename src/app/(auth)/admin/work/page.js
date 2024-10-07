@@ -40,8 +40,13 @@ export default function Adminwork(){
                                 <input type="text" className="border my-input-text"/>
                             </div>
                             <div className="w-full">
-                                <label>Employment type</label>
-                                <input type="text" className="border my-input-text w-full"/>
+                            <label>Employment type</label>
+                            <select class="my-input-text w-full">
+                            <option>Intership</option>
+                           <option>Part time</option>
+                           <option>full time</option>
+                           <option>Casual</option>
+                         </select>
                             </div>
                         </div>
                         <div className="w-full my-2">
