@@ -50,10 +50,14 @@ export default function Adminwork(){
                         </div>
                         <div className="w-full">
                             <label>Location</label>
+                            <textarea className="border my-input-text w-full"></textarea>
+                        </div>
+                        <div className="w-full">
+                            <label>Location</label>
                             <select class="my-input-text w-full">
-                           <option>New Mexico</option>
-                           <option>Missouri</option>
-                           <option>Texas</option>
+                           <option>jakarta pusat</option>
+                           <option>jakarta barat</option>
+                           <option>jakarta utara</option>
                          </select>
                         </div>
                         <div className="w-full py-2">
