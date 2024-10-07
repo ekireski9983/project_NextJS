@@ -7,6 +7,11 @@ export default function AdminWork() {
     {label:'Contract', value:'contract'},
     {label:'Internship', value:'internship'}
   ]
+  const optLocation = [
+    {label:'onsite', value:'onsite'},
+    {label:'work-from-home', value:'work-from-home'},
+    {label:'hybird', value:'hybird'},
+  ]
 
     return (<>
         <Card title="Work Form" className="pb-5">
@@ -35,6 +40,12 @@ export default function AdminWork() {
           <div className="w-full my-2">
               <label>Location</label>
               <select  className="w-full border my-input-text">
+              {
+                  optLocation && 
+                    optLocation.map((item)=>
+                      <option value={item.value}>{item.label}</option>
+                    )
+                }
                 <option>Onsite</option>
               </select>
           </div>
