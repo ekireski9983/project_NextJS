@@ -24,7 +24,7 @@ export default async function handler(req:NextApiRequest, res:NextApiResponse) {
       
       break;
     case "GET":
-      const allPosts = await db.collection("work").find({}).toArray();
+      const allPosts = await db.collection("message").find({}).toArray();
       res.json({ data: allPosts });
       break;
     default:

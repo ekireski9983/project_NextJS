@@ -30,7 +30,7 @@ export default function AdminWork() {
   }
   async function onSubmitData() {
     try{
-      let res = await fetch('/api/work', {
+      let res = await fetch('/api/message', {
         method:'POST',
         body: JSON.stringify(data),
       })
