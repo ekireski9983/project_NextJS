@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Card from '../../../../components/card';
 
-export default function AdminWork() {
+export default function AdminMessage() {
   const [data, setData] = useState({
     title:'',
     employeType:'',
@@ -46,7 +46,7 @@ export default function AdminWork() {
 }
 
   return (<>
-      <Card title="Work Form" className="pb-5">
+      <Card title="Message" className="pb-5">
         <div className="w-full my-2">
             <label>Title</label> 
             <input 
