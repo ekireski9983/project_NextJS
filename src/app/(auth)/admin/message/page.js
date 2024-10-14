@@ -1,134 +1,56 @@
-"use client"
-import { useState } from 'react';
-import Card from '../../../../components/card';
-
-export default function AdminMessage() {
-  const [data, setData] = useState({
-    title:'',
-    employeType:'',
-    companyName:'',
-    location:'',
-    startDate:'',
-    endDate:'',
-  });
-  
-
-  const optEmployeType = [
-    {label:'Full Time', value:'full-time'},
-    {label:'Part Time', value:'part-time'},
-    {label:'Contract', value:'contract'},
-    {label:'Internship', value:'internship'}
-  ]
-
-  const optLocation = [
-    {label:'Onsite', value:'onsite'},
-    {label:'WFH', value:'wfh'},
-  ]
-
-  const inputHandler= (e) =>{
-    setData({...data, [e.target.name]: e.target.value })
-  }
-  async function onSubmitData() {
-    try{
-      let res = await fetch('/api/message', {
-        method:'POST',
-        body: JSON.stringify(data),
-      })
-      let resData = await res.json()
-      if(!resData.data){
-        throw Error(resData.message)
-      }
-      alert("Data berhasil disimpan dengan id \n"+ resData.data.insertedId)
-    }catch(err){
-      console.error("ERR", err.message)
-      alert(err.message)
-    }
-}
-
-  return (<>
-      <Card title="Message" className="pb-5">
-        <div className="w-full my-2">
-            <label>Title</label> 
-            <input 
-              type="text" 
-              placeholder="Ex: Retail Sales Manager"
-              name='title'
-              value={data.title}
-              onChange={inputHandler}
-              className="w-full border my-input-text"/>
-        </div>
-
-        <div className="w-full my-2">
-            <label>Employe Type</label>
-            <select  
-              name='employeType' 
-              placeholder="Ex: Microsoft"
-              onChange={inputHandler}
-              className="w-full border my-input-text">
-              {
-                optEmployeType && 
-                  optEmployeType.map((item, key)=>
-                    <option key={key} value={item.value}>{item.label}</option>
-                  )
-              }
-            </select>
-        </div>
-
-        <div className="w-full my-2">
-            <label>Company Name</label>
-            <input 
-              name='companyName' 
-              placeholder="Ex: Pertamina"
-              type="text" 
-              onChange={inputHandler}
-              className="w-full border my-input-text"/>
-        </div>
-
-        <div className="w-full my-2">
-            <label>Location</label>
-            <select 
-              name='location'
-              placeholder="Ex: Indonesia,Jakarta"
-              onChange={inputHandler}
-              className="w-full border my-input-text">
-              {
-                optLocation && 
-                optLocation.map((item, key)=>
-                    <option key={key} value={item.value}>{item.label}</option>
-                  )
-              }
-            </select>
-        </div>
-
-        <div className="w-full my-2">
-            <label>Start Date</label>
-            <input 
-              name='startDate'
-              onChange={inputHandler}
-              type="date" 
-              className="w-full border my-input-text"/>
-        </div>
-
-        <div className="w-full my-2">
-            <label>End Date</label>
-            <input 
-              name='endDate'
-              onChange={inputHandler}
-              type="date" 
-              className="w-full border my-input-text"/>
-        </div>
-
-        <button 
-        onClick={onSubmitData}
-        className="mx-1 h-9 items-center justify-center px-4 rounded-md bg-blue-500 text-white">
-            <label>Submit Data</label>
-        </button>
-      </Card>
-      
-      <Card title="List of Work" style="mt-5">
-        asdf
-      </Card>
-    </>
+export default function Messages() {
+  return (
+    <div>
+      <div class="bg-white p-6 rounded-lg shadow-md">
+          <h2 class="text-xl font-bold mb-4">List of Message</h2>
+          <table class="min-w-full bg-white">
+              <thead>
+                  <tr>
+                      <th class="py-2 px-4 border-b border-gray-200 text-left text-sm font-semibold text-gray-600">#No</th>
+                      <th class="py-2 px-4 border-b border-gray-200 text-left text-sm font-semibold text-gray-600">Name</th>
+                      <th class="py-2 px-4 border-b border-gray-200 text-left text-sm font-semibold text-gray-600">Email</th>
+                      <th class="py-2 px-4 border-b border-gray-200 text-left text-sm font-semibold text-gray-600">Subject</th>
+                      <th class="py-2 px-4 border-b border-gray-200 text-left text-sm font-semibold text-gray-600">Message</th>
+                      <th class="py-2 px-4 border-b border-gray-200 text-left text-sm font-semibold text-gray-600">Action</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td class="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">1</td>
+                      <td class="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">Jhon doe</td>
+                      <td class="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">jhondoe@mail.com</td>
+                      <td class="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">Loremipsum</td>
+                      <td class="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">loremipsum loremipsum loremipsum</td>
+                      <td class="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">
+                          <button class="bg-green-200 text-green-800 py-1 px-3 rounded">Balas</button>
+                          <button class="bg-gray-200 text-gray-800 py-1 px-3 rounded">Arsipkan</button>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">2</td>
+                      <td class="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">Jhon doe</td>
+                      <td class="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">jhondoe@mail.com</td>
+                      <td class="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">Loremipsum</td>
+                      <td class="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">loremipsum loremipsum loremipsum</td>
+                      <td class="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">
+                          <button class="bg-green-200 text-green-800 py-1 px-3 rounded">Balas</button>
+                          <button class="bg-gray-200 text-gray-800 py-1 px-3 rounded">Arsipkan</button>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">3</td>
+                      <td class="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">Jhon doe</td>
+                      <td class="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">jhondoe@mail.com</td>
+                      <td class="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">Loremipsum</td>
+                      <td class="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">loremipsum loremipsum loremipsum</td>
+                      <td class="py-2 px-4 border-b border-gray-200 text-sm text-gray-700">
+                          <button class="bg-green-200 text-green-800 py-1 px-3 rounded">Balas</button>
+                          <button class="bg-gray-200 text-gray-800 py-1 px-3 rounded">Arsipkan</button>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+    </div>
   );
 }
-  
