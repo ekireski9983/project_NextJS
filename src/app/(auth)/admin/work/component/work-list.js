@@ -1,6 +1,25 @@
+"use client"
+import { useState, useEffect } from "react"
+
 export default function WorkList(){
+    const [loading, setLoading] = useState(false)
+    const [data, setData] = useState([])
+
+    async function onLoadData() {
+        setLoading(true)
+        let res = await fetch('/api/work')
+        let data = await res.json()
+        setData(data.data)
+        setLoading(false)
+    }
+
+    useEffect(() => {
+        onLoadData()
+    }, [])
+
     return (
         <>
+            {/* {JSON.stringify(data.data)} */}
             <table className="table-auto">
                 <thead>
                     <tr>
@@ -15,26 +34,33 @@ export default function WorkList(){
                     </tr>
                 </thead>
                 <tbody>
-               
-                    <tr className='border-b border-blue-gray-50'>
-                        <td className='p-2 '>1</td>
-                        <td className='p-2 '>Jhon doe</td>
-                        <td className='p-2 '>jhondoe@mail.com</td>
-                        <td className='p-2 '>Loremipsum</td>
-                        <td className='p-2 '>loremipsum loremipsum loremipsum</td>
-                        <td className='p-2 '>loremipsum loremipsum loremipsum</td>
-                        <td className='p-2 '>loremipsum loremipsum loremipsum</td>
-                        <td className='p-2 '>
-                            <div class="inline-flex text-[12px]">
-                                <button class=" bg-green-300 hover:bg-green-400 text-gray-800 py-2 px-4 rounded-l">
-                                    Balas
-                                </button>
-                                <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded-r">
-                                    Arsipkan
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
+
+                    { data.map((item,idx)=>{
+
+                        return (
+                            <tr className='border-b border-blue-gray-50'>
+                                <td className='p-2 '>{idx + 1}</td>
+                                <td className='p-2 '>{item.title} </td>
+                                <td className='p-2 '>{item.employeType}</td>
+                                <td className='p-2 '>{item.companyName}</td>
+                                <td className='p-2 '>df</td>
+                                <td className='p-2 '>{item.startDate}</td>
+                                <td className='p-2 '>{item.endDate}</td>
+                                <td className='p-2 '>
+                                    <div class="inline-flex text-[12px]">
+                                        <button class=" bg-green-300 hover:bg-green-400 text-gray-800 py-2 px-4 rounded-l">
+                                            Edit
+                                        </button>
+                                        <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded-r">
+                                            Delete
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        )
+                        })
+                    }
+                    
                 </tbody>
             </table>
         </>
