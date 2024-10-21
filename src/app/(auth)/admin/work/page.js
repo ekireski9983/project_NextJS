@@ -54,6 +54,7 @@ export default function AdminWork() {
             <input 
               type="text" 
               name='title'
+              placeholder="Ex: Sales"
               value={data.title}
               onChange={inputHandler}
               className="w-full border my-input-text"/>
@@ -63,6 +64,7 @@ export default function AdminWork() {
             <label>Employe Type</label>
             <select  
               name='employeType' 
+              placeholder="Ex: Microsoft"
               onChange={inputHandler}
               className="w-full border my-input-text">
               {
@@ -79,6 +81,7 @@ export default function AdminWork() {
             <input 
               name='companyName' 
               type="text" 
+              placeholder="Ex: PT angin ribut"
               onChange={inputHandler}
               className="w-full border my-input-text"/>
         </div>
@@ -118,7 +121,7 @@ export default function AdminWork() {
 
         <button 
           onClick={onSubmitData}
-          className="mx-1 h-9 items-center justify-center px-4  rounded-md bg-amber-500">
+          className="mx-1 h-9 items-center justify-center px-4 rounded-md bg-blue-500 text-white">
             <label>Submit Data</label>
         </button>
       </Card>
