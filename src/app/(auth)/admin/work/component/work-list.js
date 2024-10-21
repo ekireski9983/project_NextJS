@@ -19,7 +19,7 @@ export default function WorkList(){
 
     return (
         <>
-            {/* {JSON.stringify(data.data)} */}
+            
             <table className="table-auto">
                 <thead>
                     <tr>
@@ -34,24 +34,24 @@ export default function WorkList(){
                     </tr>
                 </thead>
                 <tbody>
-
-                    { data.map((item,idx)=>{
+                    { loading &&  <tr><td colSpan={8}>Loading...</td></tr> }
+                    {!loading && data.map((item,idx)=>{
 
                         return (
-                            <tr className='border-b border-blue-gray-50'>
+                            <tr key={idx} className='border-b border-blue-gray-50'>
                                 <td className='p-2 '>{idx + 1}</td>
                                 <td className='p-2 '>{item.title} </td>
                                 <td className='p-2 '>{item.employeType}</td>
                                 <td className='p-2 '>{item.companyName}</td>
-                                <td className='p-2 '>df</td>
+                                <td className='p-2 '>{item.location}</td>
                                 <td className='p-2 '>{item.startDate}</td>
                                 <td className='p-2 '>{item.endDate}</td>
                                 <td className='p-2 '>
-                                    <div class="inline-flex text-[12px]">
-                                        <button class=" bg-green-300 hover:bg-green-400 text-gray-800 py-2 px-4 rounded-l">
+                                    <div className="inline-flex text-[12px]">
+                                        <button className=" bg-green-300 hover:bg-green-400 text-gray-800 py-2 px-4 rounded-l">
                                             Edit
                                         </button>
-                                        <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded-r">
+                                        <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded-r">
                                             Delete
                                         </button>
                                     </div>
