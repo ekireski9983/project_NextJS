@@ -12,7 +12,6 @@ export default function AdminWork() {
     endDate:'',
   });
   
-
   const optEmployeType = [
     {label:'Full Time', value:'full-time'},
     {label:'Part Time', value:'part-time'},
@@ -28,6 +27,7 @@ export default function AdminWork() {
   const inputHandler= (e) =>{
     setData({...data, [e.target.name]: e.target.value })
   }
+
   async function onSubmitData() {
     try{
       let res = await fetch('/api/work', {
@@ -45,13 +45,13 @@ export default function AdminWork() {
     }
 }
 
+
   return (<>
       <Card title="Work Form" className="pb-5">
         <div className="w-full my-2">
             <label>Title</label> 
             <input 
               type="text" 
-              placeholder="Ex: Retail Sales Manager"
               name='title'
               value={data.title}
               onChange={inputHandler}
@@ -62,7 +62,6 @@ export default function AdminWork() {
             <label>Employe Type</label>
             <select  
               name='employeType' 
-              placeholder="Ex: Microsoft"
               onChange={inputHandler}
               className="w-full border my-input-text">
               {
@@ -78,7 +77,6 @@ export default function AdminWork() {
             <label>Company Name</label>
             <input 
               name='companyName' 
-              placeholder="Ex: Pertamina"
               type="text" 
               onChange={inputHandler}
               className="w-full border my-input-text"/>
@@ -88,7 +86,6 @@ export default function AdminWork() {
             <label>Location</label>
             <select 
               name='location'
-              placeholder="Ex: Indonesia,Jakarta"
               onChange={inputHandler}
               className="w-full border my-input-text">
               {
@@ -119,8 +116,8 @@ export default function AdminWork() {
         </div>
 
         <button 
-        onClick={onSubmitData}
-        className="mx-1 h-9 items-center justify-center px-4 rounded-md bg-blue-500 text-white">
+          onClick={onSubmitData}
+          className="mx-1 h-9 items-center justify-center px-4  rounded-md bg-amber-500">
             <label>Submit Data</label>
         </button>
       </Card>
