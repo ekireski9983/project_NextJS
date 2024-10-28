@@ -23,6 +23,7 @@ export default function AdminWork() {
   const optLocation = [
     {label:'Onsite', value:'onsite'},
     {label:'WFH', value:'wfh'},
+    {label:'hybrid', value:'hybird'},
   ]
 
   const inputHandler= (e) =>{
