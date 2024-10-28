@@ -89,7 +89,7 @@ export default function Contact() {
                                 <textarea name='pesan' onChange={inputHandler} className="border my-input-text w-full"></textarea>
                             </div>
                             <div className="w-full py-2">
-                                <button type='submit' className="mx-1 h-9 items-center justify-center px-4  rounded-md bg-amber-500">
+                                <button type='submit' className="mx-1 h-9 items-center justify-center px-4 rounded-md bg-blue-500 text-white">
                                     <label>Send Message</label>
                                 </button>
                             </div>

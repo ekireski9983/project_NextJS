@@ -1,6 +1,7 @@
 "use client"
 import { useState } from 'react';
 import Card from '../../../../components/card';
+import WorkList from './component/work-list'
 
 export default function AdminWork() {
   const [data, setData] = useState({
@@ -12,7 +13,6 @@ export default function AdminWork() {
     endDate:'',
   });
   
-
   const optEmployeType = [
     {label:'Full Time', value:'full-time'},
     {label:'Part Time', value:'part-time'},
@@ -23,11 +23,13 @@ export default function AdminWork() {
   const optLocation = [
     {label:'Onsite', value:'onsite'},
     {label:'WFH', value:'wfh'},
+    {label:'hybrid', value:'hybird'},
   ]
 
   const inputHandler= (e) =>{
     setData({...data, [e.target.name]: e.target.value })
   }
+
   async function onSubmitData() {
     try{
       let res = await fetch('/api/work', {
@@ -45,14 +47,15 @@ export default function AdminWork() {
     }
 }
 
+
   return (<>
       <Card title="Work Form" className="pb-5">
         <div className="w-full my-2">
             <label>Title</label> 
             <input 
               type="text" 
-              placeholder="Ex: Retail Sales Manager"
               name='title'
+              placeholder="Ex: Sales"
               value={data.title}
               onChange={inputHandler}
               className="w-full border my-input-text"/>
@@ -78,8 +81,8 @@ export default function AdminWork() {
             <label>Company Name</label>
             <input 
               name='companyName' 
-              placeholder="Ex: Pertamina"
               type="text" 
+              placeholder="Ex: PT angin ribut"
               onChange={inputHandler}
               className="w-full border my-input-text"/>
         </div>
@@ -88,7 +91,6 @@ export default function AdminWork() {
             <label>Location</label>
             <select 
               name='location'
-              placeholder="Ex: Indonesia,Jakarta"
               onChange={inputHandler}
               className="w-full border my-input-text">
               {
@@ -119,14 +121,14 @@ export default function AdminWork() {
         </div>
 
         <button 
-        onClick={onSubmitData}
-        className="mx-1 h-9 items-center justify-center px-4 rounded-md bg-blue-500 text-white">
+          onClick={onSubmitData}
+          className="mx-1 h-9 items-center justify-center px-4 rounded-md bg-blue-500 text-white">
             <label>Submit Data</label>
         </button>
       </Card>
       
       <Card title="List of Work" style="mt-5">
-        asdf
+        <WorkList/>
       </Card>
     </>
   );
