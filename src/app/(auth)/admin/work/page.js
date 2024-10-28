@@ -23,7 +23,6 @@ export default function AdminWork() {
   const optLocation = [
     {label:'Onsite', value:'onsite'},
     {label:'WFH', value:'wfh'},
-    {label:'hybrid', value:'hybird'},
   ]
 
   const inputHandler= (e) =>{
@@ -45,7 +44,19 @@ export default function AdminWork() {
       console.error("ERR", err.message)
       alert(err.message)
     }
-}
+  }
+
+  const onEditItem = async (id)=>{
+    const response = await fetch(`/api/work/${id}`);
+    let resData = await response.json();
+    console.log('resData', resData)
+    setData({
+      ...data,
+      id: resData.data[0].id,
+      title:resData.data[0].title 
+      //lanjutkan
+    })
+  }
 
 
   return (<>
@@ -55,7 +66,6 @@ export default function AdminWork() {
             <input 
               type="text" 
               name='title'
-              placeholder="Ex: Sales"
               value={data.title}
               onChange={inputHandler}
               className="w-full border my-input-text"/>
@@ -65,7 +75,6 @@ export default function AdminWork() {
             <label>Employe Type</label>
             <select  
               name='employeType' 
-              placeholder="Ex: Microsoft"
               onChange={inputHandler}
               className="w-full border my-input-text">
               {
@@ -82,7 +91,6 @@ export default function AdminWork() {
             <input 
               name='companyName' 
               type="text" 
-              placeholder="Ex: PT angin ribut"
               onChange={inputHandler}
               className="w-full border my-input-text"/>
         </div>
@@ -128,7 +136,7 @@ export default function AdminWork() {
       </Card>
       
       <Card title="List of Work" style="mt-5">
-        <WorkList/>
+        <WorkList onEditItem={(val)=>onEditItem(val)}/>
       </Card>
     </>
   );
