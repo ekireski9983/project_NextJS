@@ -8,7 +8,7 @@ export default function Dashboard() {
                       <h3 className="text-left text-2xl w-full font-bold">I Am <span class="text-blue-600">Rezky jayadi saputra</span></h3>
                       <p className="w-1/2">Saya seorang mahasiswa aktif Politeknik LP3I Jakarta Semester 5</p>
                     <div className="w-full py-2">
-                          <button className="mx-1 h-9 items-center justify-center px-4 rounded-md bg-blue-500 text-white">
+                          <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                               <label>Contact</label>
                           </button>
                       </div>
