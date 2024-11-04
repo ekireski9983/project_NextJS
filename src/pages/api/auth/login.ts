@@ -18,7 +18,7 @@ export default async function handler(req:NextApiRequest,res:NextApiResponse){
                     throw new Error('password is required')
                 }
                 if (body.email == "admin@gmail.com" && body.password == "123") {
-                    setCookie('auth-session', 'value' , {req,res,maxAge :60 * 6 * 24});
+                    setCookie(`${process.env.AUTH_COOKIE_NAME}`, 'value' , {req,res,maxAge :60 * 6 * 24});
                 }else{
                     throw new Error('invalid username and password')
                 }
