@@ -5,6 +5,7 @@ const protectedRoutes = [
     '/admin',
     "/admin/work",
     "/admin/message"
+
 ]
 
 export default async function middleware(req: NextRequest) {
