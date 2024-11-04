@@ -1,7 +1,11 @@
 import type { NextRequest } from 'next/server'
 import {  NextResponse } from 'next/server'
 
-const protectedRoutes = ['/admin']
+const protectedRoutes = [
+    '/admin',
+    "/admin/work",
+    "/admin/message"
+]
 
 export default async function middleware(req: NextRequest) {
     const cookie = req.cookies.get('auth-session')
