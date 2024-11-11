@@ -29,7 +29,7 @@ export default function PublicMenu() {
                       <a className="btn-link" href="/contact">Contact</a>
                     </li>
                     <li className="mt-1">
-                      <a className="btn-link" href="/register">register</a>
+                      <a className="btn-link" href="/register">Register</a>
                     </li>
                     <li>
                       <button  className="btn-primary" onClick={onLoginPage}>
