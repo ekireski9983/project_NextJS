@@ -11,8 +11,10 @@
   "dependencies": {
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.1.5",
+    "bcrypt": "^5.1.1",
     "cookies-next": "^4.3.0",
     "flowbite": "^2.5.2",
+    "jose": "^5.9.6",
     "mongodb": "^3.7.4",
     "next": "^14.2.13",
     "react": "^18",
