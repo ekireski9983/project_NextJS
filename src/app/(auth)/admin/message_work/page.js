@@ -32,7 +32,6 @@ export default function WorkList(){
 
     return (
         <>
-            
             <table className="table-auto">
                 <thead>
                     <tr>
