@@ -25,13 +25,10 @@ export default async function middleware(req: NextRequest) {
                 // userId = payload.id || ''
                 userId = cookie?.value
             }catch(er){
-                console.log('er=>',er)
                 userId = ""
             }
         }
 
-        console.log('isProtectedRoute', isProtectedRoute)
-        console.log('userId', userId)
         if (isProtectedRoute &&  userId ==='') {
             return NextResponse.redirect(new URL('/login', req.nextUrl))
         }
