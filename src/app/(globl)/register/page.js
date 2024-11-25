@@ -119,6 +119,12 @@ export default function Register(){
                             login now
                         </a>
                     </p>
+                    <p className="mt-10 text-center text-sm text-gray-500">
+                        back to homepage?{' '}
+                        <a href="/" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+                            back now
+                        </a>
+                    </p>
                 </div>
             </div>
         </>
