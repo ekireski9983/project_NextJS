@@ -33,9 +33,6 @@ export default function AdminMenu() {
                       <a className="btn-link" href="/admin/message">Messages</a>
                     </li>
                     <li className="mt-1">
-                      <a className="btn-link" href="/admin/message_work">Messages work</a>
-                    </li>
-                    <li className="mt-1">
                       <a className="btn-link" href="/admin/blogs">Blogs</a>
                     </li>
                     <li>
