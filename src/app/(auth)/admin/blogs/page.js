@@ -39,9 +39,9 @@ export default function AdminBlogs() {
             <table className="table-auto w-full">
                 <thead>
                     <tr>
+                        <th className='table-head border-blue-gray-100'>No</th>
                         <th className='table-head border-blue-gray-100'>Title</th>
-                        <th className='table-head border-blue-gray-100'>Sub_Title</th>
-                        <th className='table-head border-blue-gray-100'>Created_at</th>
+                        <th className='table-head border-blue-gray-100'>Sub Title</th>
                         <th className='table-head border-blue-gray-100'>Action</th>
                     </tr>
                 </thead>
