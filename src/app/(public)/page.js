@@ -7,7 +7,7 @@ const ItemService=({
   return (<>
     <div className="w-[310px] bg-white p-5 ">
       <div className="flex justify-center">
-        <img src="images/coding.png"/>
+        <img src="image/coding.png"/>
       </div>
       <div className="text-center">
         <h3>{title}</h3>
@@ -45,7 +45,7 @@ export default function Dashboard() {
             </button>
           </div>
           <div>
-            <img src="images/avatar.png" />
+            <img src="image/avatar.png" />
           </div>
         </div>
 
