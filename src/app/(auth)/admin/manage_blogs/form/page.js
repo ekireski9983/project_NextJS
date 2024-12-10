@@ -11,20 +11,27 @@ export default function ManageBlogsForm() {
     const [modalTitle, setModalTitle] = useState("")
     const [modalMessage, setModalMessage] = useState("")
     const [data, setData] = useState({
-        title:'',
-        subTitle:'',
-        category:'',
+        blogstitle:'',
+        blogssummary:'',
+        blogscategory:'',
         content:'',
     });
 
     const clearData = ()=>{
         setData({
             title:'',
-            subTitle:'',
+            blogssummary:'',
             category:'',
             content:'',
         })
     }
+
+    const optblogscategory = [
+        {label:'reactjs', value:'reactjs'},
+        {label:'php-programming', value:'php-programming'},
+        {label:'VueJS', value:'VueJS'},
+        {label:'ReactNative', value:'ReactNative'}
+      ]
 
     const inputHandler= (e) =>{
         setData({...data, [e.target.name]: e.target.value })
@@ -69,32 +76,38 @@ export default function ManageBlogsForm() {
 
         <Card title="Blogs Form">
             <div className="w-full my-2">
-                <label>Title</label>
+                <label>blogs Title</label>
                     <input 
-                        name='title'
-                        value={data.title}
+                        name='blogstitle'
+                        value={data.blogstitle}
                         onChange={inputHandler}
                         type="text" 
                         className="w-full border my-input-text"/>
             </div>
 
             <div className="w-full my-2">
-                <label>Sub Title</label>
+                <label>summary blogs</label>
                     <input 
-                        name='subTitle'
-                        value={data.subTitle}
+                        name='blogssummary'
+                        value={data.blogssummary}
                         onChange={inputHandler}
                         className="w-full border my-input-text"/>
             </div>
 
             <div className="w-full my-2">
-                <label>category blogs</label>
-                    <input 
-                        name='category'
-                        value={data.category}
-                        onChange={inputHandler}
-                        className="w-full border my-input-text"/>
-            </div>
+            <label>blogs category</label>
+            <select  
+              name='blogscategory' 
+              onChange={inputHandler}
+              className="w-full border my-input-text">
+              {
+                optblogscategory && 
+                  optblogscategory.map((item, key)=>
+                    <option key={key} value={item.value}>{item.label}</option>
+                  )
+              }
+            </select>
+        </div>
 
             <div className="w-full my-2">
                 <label>Content</label>

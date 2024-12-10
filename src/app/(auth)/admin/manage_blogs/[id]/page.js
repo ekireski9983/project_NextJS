@@ -14,9 +14,9 @@ export default function EditBlogs() {
     const [modalMessage, setModalMessage] = useState("")
     const [isOkOnly, setIsOkOnly] = useState(true)
     const [data, setData] = useState({
-        title:'',
-        subTitle:'',
-        category:'',
+        blogstitle:'',
+        blogssummary:'',
+        blogscategory:'',
         content:'',
         _id:''
     });
@@ -84,20 +84,20 @@ export default function EditBlogs() {
       <>
         <Card title="Blogs Edit Form">
             <div className="w-full my-2">
-                <label>Title</label>
+                <label>blogs Title</label>
                     <input 
-                        name='title'
-                        value={data.title}
+                        name='blogstitle'
+                        value={data.blogstitle}
                         onChange={inputHandler}
                         type="text" 
                         className="w-full border my-input-text"/>
             </div>
 
             <div className="w-full my-2">
-                <label>Sub Title</label>
+                <label>summary blogs</label>
                     <input 
-                        name='subTitle'
-                        value={data.subTitle}
+                        name='blogssummary'
+                        value={data.blogssummary}
                         onChange={inputHandler}
                         className="w-full border my-input-text"/>
             </div>
@@ -105,8 +105,8 @@ export default function EditBlogs() {
             <div className="w-full my-2">
                 <label>category blogs</label>
                     <input 
-                        name='category'
-                        value={data.category}
+                        name='blogscategory'
+                        value={data.blogscategory}
                         onChange={inputHandler}
                         className="w-full border my-input-text"/>
             </div>
