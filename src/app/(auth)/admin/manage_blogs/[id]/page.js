@@ -21,6 +21,12 @@ export default function EditBlogs() {
         _id:''
     });
 
+    const optblogscategory = [
+        {label:'reactjs', value:'reactjs'},
+        {label:'php-programming', value:'php-programming'},
+        {label:'VueJS', value:'VueJS'},
+        {label:'ReactNative', value:'ReactNative'}
+      ]
 
     const fetDataById = async ()=>{
         try{
@@ -103,14 +109,20 @@ export default function EditBlogs() {
             </div>
 
             <div className="w-full my-2">
-                <label>category blogs</label>
-                    <input 
-                        name='blogscategory'
-                        value={data.blogscategory}
-                        onChange={inputHandler}
-                        className="w-full border my-input-text"/>
-            </div>
-
+            <label>blogs category</label>
+            <select  
+              name='blogscategory' 
+              onChange={inputHandler}
+              className="w-full border my-input-text">
+              {
+                optblogscategory && 
+                  optblogscategory.map((item, key)=>
+                    <option key={key} value={item.value}>{item.label}</option>
+                  )
+              }
+            </select>
+        </div>
+        
             <Editor
                     id='content'
                     apiKey='zsi50x7ymctngli7btlhb6o85wqsdshppgng8g4pt1q8kn25'
