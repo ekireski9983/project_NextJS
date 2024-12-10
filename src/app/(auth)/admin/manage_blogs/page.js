@@ -78,7 +78,8 @@ export default function ManageBlogs() {
                     <tr>
                         <th className='table-head border-blue-gray-100'>No</th>
                         <th className='table-head border-blue-gray-100'>Title</th>
-                        <th className='table-head border-blue-gray-100'>Sub Title</th>
+                        <th className='table-head border-blue-gray-100'>blog summary</th>
+                        <th className='table-head border-blue-gray-100'>category</th>
                         <th className='table-head border-blue-gray-100'>Action</th>
                     </tr>
                 </thead>

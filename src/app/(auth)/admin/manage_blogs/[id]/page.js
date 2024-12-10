@@ -16,6 +16,7 @@ export default function EditBlogs() {
     const [data, setData] = useState({
         title:'',
         subTitle:'',
+        category:'',
         content:'',
         _id:''
     });
@@ -97,6 +98,15 @@ export default function EditBlogs() {
                     <input 
                         name='subTitle'
                         value={data.subTitle}
+                        onChange={inputHandler}
+                        className="w-full border my-input-text"/>
+            </div>
+
+            <div className="w-full my-2">
+                <label>category blogs</label>
+                    <input 
+                        name='category'
+                        value={data.category}
                         onChange={inputHandler}
                         className="w-full border my-input-text"/>
             </div>

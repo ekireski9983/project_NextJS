@@ -13,14 +13,15 @@ export default function ManageBlogsForm() {
     const [data, setData] = useState({
         title:'',
         subTitle:'',
-        content:'',
         category:'',
+        content:'',
     });
 
     const clearData = ()=>{
         setData({
             title:'',
             subTitle:'',
+            category:'',
             content:'',
         })
     }
@@ -82,6 +83,15 @@ export default function ManageBlogsForm() {
                     <input 
                         name='subTitle'
                         value={data.subTitle}
+                        onChange={inputHandler}
+                        className="w-full border my-input-text"/>
+            </div>
+
+            <div className="w-full my-2">
+                <label>category blogs</label>
+                    <input 
+                        name='category'
+                        value={data.category}
                         onChange={inputHandler}
                         className="w-full border my-input-text"/>
             </div>
