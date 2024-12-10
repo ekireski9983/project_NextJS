@@ -72,7 +72,7 @@ export default function ManageBlogs() {
 
     return (
         <>
-        <Card title="List of Blogs" style="mt-5" showAddBtn onAddNew={onAddNew}>
+        <Card title="manage of Blogs" style="mt-5" showAddBtn onAddNew={onAddNew}>
             <table className="table-auto w-full">
                 <thead>
                     <tr>
@@ -90,9 +90,10 @@ export default function ManageBlogs() {
                                 <td className='p-2 text-center'>{key+1}</td>
                                 <td className='p-2 '>{item.title} </td>
                                 <td className='p-2 '>{item.subTitle} </td>
+                                <td className='p-2 '>{item.category} </td>
                                 <td className='p-2 '>
                                     <div className="inline-flex text-[12px]">
-                                        <button className=" bg-green-300 hover:bg-green-400 text-gray-800 py-2 px-4 rounded-l">
+                                        <button className="bg-green-300 hover:bg-green-400 text-gray-800 py-2 px-4 rounded-l">
                                             Detail
                                         </button>
                                         <button 
