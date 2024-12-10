@@ -72,13 +72,13 @@ export default function ManageBlogs() {
 
     return (
         <>
-        <Card title="List manage Blogs" style="mt-5" showAddBtn onAddNew={onAddNew}>
+        <Card title="List of Blogs" style="mt-5" showAddBtn onAddNew={onAddNew}>
             <table className="table-auto w-full">
                 <thead>
                     <tr>
                         <th className='table-head border-blue-gray-100'>No</th>
-                        <th className='table-head border-blue-gray-100'>blog summary</th>
-                        <th className='table-head border-blue-gray-100'>category</th>
+                        <th className='table-head border-blue-gray-100'>Title</th>
+                        <th className='table-head border-blue-gray-100'>Sub Title</th>
                         <th className='table-head border-blue-gray-100'>Action</th>
                     </tr>
                 </thead>
