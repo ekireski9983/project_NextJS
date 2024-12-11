@@ -18,6 +18,7 @@ export default async function handler(req:NextApiRequest, res:NextApiResponse) {
                     $set: {
                         content: body.content,
                         subTitle: body.subTitle,
+                        category: body.category,
                         title: body.title
                     },
                   };

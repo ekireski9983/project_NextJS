@@ -127,6 +127,7 @@ export default function Blogs() {
                 className="m-5 p-4"
                 title={item.title}
                 subTitle={item.subTitle}
+                category={item.category}
               />
             </div>
           ))}
