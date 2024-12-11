@@ -79,6 +79,7 @@ export default function AdminBlogs() {
                         <th className='table-head border-blue-gray-100'>No</th>
                         <th className='table-head border-blue-gray-100'>blogs title</th>
                         <th className='table-head border-blue-gray-100'>blogs summary</th>
+                        <th className='table-head border-blue-gray-100'>blogs category</th>
                         <th className='table-head border-blue-gray-100'>Action</th>
                     </tr>
                 </thead>
@@ -89,6 +90,7 @@ export default function AdminBlogs() {
                                 <td className='p-2 text-center'>{key+1}</td>
                                 <td className='p-2 '>{item.title} </td>
                                 <td className='p-2 '>{item.subTitle} </td>
+                                <td className='p-2 '>{item.category} </td>
                                 <td className='p-2 '>
                                     <div className="inline-flex text-[12px]">
                                     <button 

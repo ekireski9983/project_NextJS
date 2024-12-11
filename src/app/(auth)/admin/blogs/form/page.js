@@ -13,6 +13,7 @@ export default function AdminBlogsForm() {
     const [data, setData] = useState({
         title:'',
         subTitle:'',
+        category:'',
         content:'',
     });
 
@@ -20,10 +21,11 @@ export default function AdminBlogsForm() {
         setData({
             title:'',
             subTitle:'',
+            category:'',
             content:'',
         })
     }
-    const category = [
+    const optcategory = [
         {label:'reactjs', value:'reactjs'},
         {label:'php-programming', value:'php-programming'},
         {label:'VueJS', value:'VueJS'},
@@ -90,6 +92,21 @@ export default function AdminBlogsForm() {
                         onChange={inputHandler}
                         className="w-full border my-input-text"/>
             </div>
+
+            <div className="w-full my-2">
+            <label>category blogs</label>
+            <select  
+              name='category' 
+              onChange={inputHandler}
+              className="w-full border my-input-text">
+              {
+                optcategory && 
+                  optcategory.map((item, key)=>
+                    <option key={key} value={item.value}>{item.label}</option>
+                  )
+              }
+            </select>
+        </div>
 
             <div className="w-full my-2">
                 <label>Content</label>
