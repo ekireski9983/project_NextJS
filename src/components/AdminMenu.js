@@ -4,16 +4,8 @@ import { useRouter } from 'next/navigation'
 export default function AdminMenu() {
     const router = useRouter()
 
-    
-    const onLogOut= async ()=>{
-      const res =  await fetch(`/api/auth/logout`,{
-        method:'POST',
-      })
-
-      let response = await res.json()
-      if(res.status == 200){
+    const onLogOut=()=>{
         router.push('/', { scroll: false })
-      }
     }
 
     return (
@@ -26,17 +18,14 @@ export default function AdminMenu() {
                 </div>
                 <div>
                   <ul className="flex flex-row gap-6">
+                  <li className="mt-1">
+                      <a className="btn-link" href="/admin/blogs">Blogs</a>
+                    </li>
                     <li className="mt-1">
                       <a className="btn-link" href="/admin/work">Work</a>
                     </li>
                     <li className="mt-1">
                       <a className="btn-link" href="/admin/message">Messages</a>
-                    </li>
-                    <li className="mt-1">
-                      <a className="btn-link" href="/admin/blogs">Blogs</a>
-                    </li>
-                    <li className="mt-1">
-                      <a className="btn-link" href="/admin/manage_blogs">manage Blogs</a>
                     </li>
                     <li>
                         <button  className="btn-primary" onClick={onLogOut}>

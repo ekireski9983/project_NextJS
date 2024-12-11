@@ -14,16 +14,23 @@ export default function EditBlogs() {
     const [modalMessage, setModalMessage] = useState("")
     const [isOkOnly, setIsOkOnly] = useState(true)
     const [data, setData] = useState({
-        title:'',
-        subTitle:'',
+        blogstitle:'',
+        blogssummary:'',
+        blogscategory:'',
         content:'',
         _id:''
     });
 
+    const optblogscategory = [
+        {label:'reactjs', value:'reactjs'},
+        {label:'php-programming', value:'php-programming'},
+        {label:'VueJS', value:'VueJS'},
+        {label:'ReactNative', value:'ReactNative'}
+      ]
 
     const fetDataById = async ()=>{
         try{
-            const res = await fetch(`/api/blogs/${params.id}`);
+            const res = await fetch(`/api/list_blogs/${params.id}`);
             let responseData = await res.json()
             setData(responseData.data)
 
@@ -83,24 +90,39 @@ export default function EditBlogs() {
       <>
         <Card title="Blogs Edit Form">
             <div className="w-full my-2">
-                <label>Title</label>
+                <label>blogs Title</label>
                     <input 
-                        name='title'
-                        value={data.title}
+                        name='blogstitle'
+                        value={data.blogstitle}
                         onChange={inputHandler}
                         type="text" 
                         className="w-full border my-input-text"/>
             </div>
 
             <div className="w-full my-2">
-                <label>Sub Title</label>
+                <label>summary blogs</label>
                     <input 
-                        name='subTitle'
-                        value={data.subTitle}
+                        name='blogssummary'
+                        value={data.blogssummary}
                         onChange={inputHandler}
                         className="w-full border my-input-text"/>
             </div>
 
+            <div className="w-full my-2">
+            <label>blogs category</label>
+            <select  
+              name='blogscategory' 
+              onChange={inputHandler}
+              className="w-full border my-input-text">
+              {
+                optblogscategory && 
+                  optblogscategory.map((item, key)=>
+                    <option key={key} value={item.value}>{item.label}</option>
+                  )
+              }
+            </select>
+        </div>
+        
             <Editor
                     id='content'
                     apiKey='zsi50x7ymctngli7btlhb6o85wqsdshppgng8g4pt1q8kn25'

@@ -15,27 +15,21 @@ export default function PublicMenu() {
             <div className="max-w-5xl mx-auto px-6 md:px-12 xl:px-6">
               <div className="flex flex-wrap items-center justify-between">
                 <div>
-                  <a href="/">Ekikiki</a>
+                  <a href="/">Hilya Aulianti</a>
                 </div>
                 <div>
                   <ul className="flex flex-row gap-6">
-                    {/* <li className="mt-1">
+                    <li className="mt-1">
                       <a className="btn-link" href="/about">About</a>
-                    </li> */}
+                    </li>
                     <li className="mt-1">
                       <a className="btn-link" href="/work">Work</a>
-                    </li>
-                    <li className="mt-1">
-                      <a className="btn-link" href="/contact">Contact</a>
-                    </li>
-                    <li className="mt-1">
-                      <a className="btn-link" href="/register">register</a>
                     </li>
                     <li className="mt-1">
                       <a className="btn-link" href="/blogs">Blogs</a>
                     </li>
                     <li className="mt-1">
-                      <a className="btn-link" href="/manage_blogs">list Blogs</a>
+                      <a className="btn-link" href="/contact">Contact</a>
                     </li>
                     <li>
                       <button  className="btn-primary" onClick={onLoginPage}>

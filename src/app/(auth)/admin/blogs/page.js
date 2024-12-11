@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import ConfigDialog from '../../../../components/ConfirmDialog'
 
-export default function AdminBlogs() {
+export default function Blogs() {
     const router = useRouter();
     const [modal, setModal] = useState(false)
     const [modalTitle, setModalTitle] = useState("")
@@ -72,13 +72,14 @@ export default function AdminBlogs() {
 
     return (
         <>
-        <Card title="List of Blogs" style="mt-5" showAddBtn onAddNew={onAddNew}>
+        <Card title="manage of Blogs" style="mt-5" showAddBtn onAddNew={onAddNew}>
             <table className="table-auto w-full">
                 <thead>
                     <tr>
                         <th className='table-head border-blue-gray-100'>No</th>
-                        <th className='table-head border-blue-gray-100'>Title</th>
-                        <th className='table-head border-blue-gray-100'>Sub Title</th>
+                        <th className='table-head border-blue-gray-100'>blog Title</th>
+                        <th className='table-head border-blue-gray-100'>blogs summary</th>
+                        <th className='table-head border-blue-gray-100'>category</th>
                         <th className='table-head border-blue-gray-100'>Action</th>
                     </tr>
                 </thead>
@@ -87,21 +88,19 @@ export default function AdminBlogs() {
                         return (
                             <tr key={key} className='border-b border-blue-gray-50 '>
                                 <td className='p-2 text-center'>{key+1}</td>
-                                <td className='p-2 '>{item.title} </td>
-                                <td className='p-2 '>{item.subTitle} </td>
+                                <td className='p-2 '>{item.blogstitle} </td>
+                                <td className='p-2 '>{item.blogssummary} </td>
+                                <td className='p-2 '>{item.blogscategory} </td>
                                 <td className='p-2 '>
                                     <div className="inline-flex text-[12px]">
-                                        <button className=" bg-green-300 hover:bg-green-400 text-gray-800 py-2 px-4 rounded-l">
-                                            Detail
-                                        </button>
                                         <button 
                                             onClick={()=>gotoEditPage(item._id)}
-                                            className="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4">
+                                            className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
                                             Edit
                                         </button>
                                         <button 
                                             onClick={()=>onConfirmDelete(item._id)}
-                                            className="bg-red-300 hover:bg-red-400 text-gray-800 py-2 px-4 rounded-r">
+                                            className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
                                             Delete
                                         </button>
                                     </div>
