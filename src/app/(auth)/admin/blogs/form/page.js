@@ -30,6 +30,7 @@ export default function AdminBlogsForm() {
         {label:'React Native', value:'React Native'},
         {label:'Vlue.js', value:'Vlue.js'},
         {label:'Web Pemograman', value:'Web Pemograman'},
+        {label:'php programming', value:'php programming'},
       ]
     const inputHandler= (e) =>{
         setData({...data, [e.target.name]: e.target.value })

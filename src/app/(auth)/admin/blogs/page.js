@@ -83,8 +83,8 @@ export default function AdminBlogs() {
 
     return (
         <>
-            <Card title="List of Blogs" style="mt-5" showAddBtn onAddNew={onAddNew}>
-                <h1 className="text-2xl font-bold mb-4">Search Filter Example</h1>
+            <Card title="manage of Blogs" style="mt-5" showAddBtn onAddNew={onAddNew}>
+                <h1 className="text-2xl font-bold mb-4 text-center">search some article</h1>
                 <div className="flex justify-center" >
                 <form
                     onSubmit={handleSearchSubmit}
