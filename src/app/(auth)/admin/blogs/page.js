@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import ConfigDialog from '../../../../components/ConfirmDialog'
 
-export default function Blogs() {
+export default function AdminBlogs() {
     const router = useRouter();
     const [modal, setModal] = useState(false)
     const [modalTitle, setModalTitle] = useState("")
@@ -72,14 +72,13 @@ export default function Blogs() {
 
     return (
         <>
-        <Card title="manage of Blogs" style="mt-5" showAddBtn onAddNew={onAddNew}>
+        <Card title="maanage of Blogs" style="mt-5" showAddBtn onAddNew={onAddNew}>
             <table className="table-auto w-full">
                 <thead>
                     <tr>
                         <th className='table-head border-blue-gray-100'>No</th>
-                        <th className='table-head border-blue-gray-100'>blog Title</th>
+                        <th className='table-head border-blue-gray-100'>blogs title</th>
                         <th className='table-head border-blue-gray-100'>blogs summary</th>
-                        <th className='table-head border-blue-gray-100'>category</th>
                         <th className='table-head border-blue-gray-100'>Action</th>
                     </tr>
                 </thead>
@@ -88,12 +87,11 @@ export default function Blogs() {
                         return (
                             <tr key={key} className='border-b border-blue-gray-50 '>
                                 <td className='p-2 text-center'>{key+1}</td>
-                                <td className='p-2 '>{item.blogstitle} </td>
-                                <td className='p-2 '>{item.blogssummary} </td>
-                                <td className='p-2 '>{item.blogscategory} </td>
+                                <td className='p-2 '>{item.title} </td>
+                                <td className='p-2 '>{item.subTitle} </td>
                                 <td className='p-2 '>
                                     <div className="inline-flex text-[12px]">
-                                        <button 
+                                    <button 
                                             onClick={()=>gotoEditPage(item._id)}
                                             className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
                                             Edit

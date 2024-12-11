@@ -5,28 +5,25 @@ import { useState } from 'react'
 import { useRef } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 
-export default function BlogsForm() {
+export default function AdminBlogsForm() {
     const editorRef = useRef(null);
     const [modal, setModal] = useState(false)
     const [modalTitle, setModalTitle] = useState("")
     const [modalMessage, setModalMessage] = useState("")
     const [data, setData] = useState({
-        blogstitle:'',
-        blogssummary:'',
-        blogscategory:'',
+        title:'',
+        subTitle:'',
         content:'',
     });
 
     const clearData = ()=>{
         setData({
             title:'',
-            blogssummary:'',
-            category:'',
+            subTitle:'',
             content:'',
         })
     }
-
-    const optblogscategory = [
+    const category = [
         {label:'reactjs', value:'reactjs'},
         {label:'php-programming', value:'php-programming'},
         {label:'VueJS', value:'VueJS'},
@@ -76,10 +73,10 @@ export default function BlogsForm() {
 
         <Card title="Blogs Form">
             <div className="w-full my-2">
-                <label>blogs Title</label>
+                <label>blogs title</label>
                     <input 
-                        name='blogstitle'
-                        value={data.blogstitle}
+                        name='title'
+                        value={data.title}
                         onChange={inputHandler}
                         type="text" 
                         className="w-full border my-input-text"/>
@@ -88,32 +85,17 @@ export default function BlogsForm() {
             <div className="w-full my-2">
                 <label>summary blogs</label>
                     <input 
-                        name='blogssummary'
-                        value={data.blogssummary}
+                        name='subTitle'
+                        value={data.subTitle}
                         onChange={inputHandler}
                         className="w-full border my-input-text"/>
             </div>
 
             <div className="w-full my-2">
-            <label>blogs category</label>
-            <select  
-              name='blogscategory' 
-              onChange={inputHandler}
-              className="w-full border my-input-text">
-              {
-                optblogscategory && 
-                  optblogscategory.map((item, key)=>
-                    <option key={key} value={item.value}>{item.label}</option>
-                  )
-              }
-            </select>
-        </div>
-
-            <div className="w-full my-2">
                 <label>Content</label>
                 <Editor
                     id='content'
-                    apiKey='zsi50x7ymctngli7btlhb6o85wqsdshppgng8g4pt1q8kn25'
+                    apiKey='hz9os6h0p1826jcqknks4q1fm8yl9khctaa7nmexkf0rnx2e'
                     onInit={(_evt, editor) => editorRef.current = editor}
                     initialValue={data.content}
                     init={{

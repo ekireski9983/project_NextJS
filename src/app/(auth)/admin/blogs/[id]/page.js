@@ -14,23 +14,16 @@ export default function EditBlogs() {
     const [modalMessage, setModalMessage] = useState("")
     const [isOkOnly, setIsOkOnly] = useState(true)
     const [data, setData] = useState({
-        blogstitle:'',
-        blogssummary:'',
-        blogscategory:'',
+        title:'',
+        subTitle:'',
         content:'',
         _id:''
     });
 
-    const optblogscategory = [
-        {label:'reactjs', value:'reactjs'},
-        {label:'php-programming', value:'php-programming'},
-        {label:'VueJS', value:'VueJS'},
-        {label:'ReactNative', value:'ReactNative'}
-      ]
 
     const fetDataById = async ()=>{
         try{
-            const res = await fetch(`/api/list_blogs/${params.id}`);
+            const res = await fetch(`/api/blogs/${params.id}`);
             let responseData = await res.json()
             setData(responseData.data)
 
@@ -90,10 +83,10 @@ export default function EditBlogs() {
       <>
         <Card title="Blogs Edit Form">
             <div className="w-full my-2">
-                <label>blogs Title</label>
+                <label>title blogs</label>
                     <input 
-                        name='blogstitle'
-                        value={data.blogstitle}
+                        name='title'
+                        value={data.title}
                         onChange={inputHandler}
                         type="text" 
                         className="w-full border my-input-text"/>
@@ -102,30 +95,15 @@ export default function EditBlogs() {
             <div className="w-full my-2">
                 <label>summary blogs</label>
                     <input 
-                        name='blogssummary'
-                        value={data.blogssummary}
+                        name='subTitle'
+                        value={data.subTitle}
                         onChange={inputHandler}
                         className="w-full border my-input-text"/>
             </div>
 
-            <div className="w-full my-2">
-            <label>blogs category</label>
-            <select  
-              name='blogscategory' 
-              onChange={inputHandler}
-              className="w-full border my-input-text">
-              {
-                optblogscategory && 
-                  optblogscategory.map((item, key)=>
-                    <option key={key} value={item.value}>{item.label}</option>
-                  )
-              }
-            </select>
-        </div>
-        
             <Editor
                     id='content'
-                    apiKey='zsi50x7ymctngli7btlhb6o85wqsdshppgng8g4pt1q8kn25'
+                    apiKey='hz9os6h0p1826jcqknks4q1fm8yl9khctaa7nmexkf0rnx2e'
                     onInit={(_evt, editor) => editorRef.current = editor}
                     initialValue={data.content}
                     init={{
