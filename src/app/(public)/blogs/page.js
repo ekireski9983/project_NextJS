@@ -8,7 +8,7 @@ const CardItem = ({ title, subTitle }) => {
       <div className="flex justify-center">
         <img
           className="h-[300px]"
-          src="/image/no-image-icon.jpg"
+          src="/images/no-image-icon.jpg"
           alt="No Image"
         />
       </div>
@@ -88,6 +88,7 @@ export default function Blogs() {
         Velit officia consequat duis enim velit mollit. lorem ipsum
       </p>
       <h1 className="text-2xl font-bold mb-4">Search Filter Example</h1>
+      <div className="flex justify-center" >
 
       <form
         onSubmit={handleSearchSubmit}
@@ -107,7 +108,7 @@ export default function Blogs() {
           Submit
         </button>
       </form>
-
+      </div>
       <div className="grid grid-cols-3 gap-4 mt-10">
         {isLoading && (
           <>
@@ -127,7 +128,6 @@ export default function Blogs() {
                 className="m-5 p-4"
                 title={item.title}
                 subTitle={item.subTitle}
-                category={item.category}
               />
             </div>
           ))}
