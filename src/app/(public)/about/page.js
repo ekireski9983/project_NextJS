@@ -1,7 +1,7 @@
 export default function About() {
     return (
       <div>
-        h
+        tes about
       </div>
     );
 }

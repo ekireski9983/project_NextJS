@@ -1,77 +1,102 @@
-import Card from '../../../../components/card';
+"use client"
+import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
+// import Card from "../../../../component/card";
 
-export default function AdminMessage() {
+export default function Message() {
+    const [data, setData] = useState({});
+    const [isLoading, setLoading] = useState(true)
+
+    async function onLoadData() {
+        setLoading(true);
+        try {
+            const res = await fetch('/api/pesan');
+            if (!res.ok) {
+                throw new Error('Failed to fetch data');
+            }
+            const fetchedData = await res.json();
+            setData(fetchedData.data); // Adjust based on your API response structure
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        } finally {
+            setLoading(false);
+        }
+    }
+
+    useEffect(() => {
+        onLoadData();
+    }, []);
+
+    if (isLoading) {
+        return <div>Loading...</div>; // Show loading indicator while data is being fetched
+      }
+
     return (
-      <>
-        <Card title="List of Message" style="mt-5">
-            <table className="table-auto">
+        <>
+            <div title="list of message" className="mt-20">List Of Messages</div>
+            <table className="w-full border-collapse mt-5">
                 <thead>
                     <tr>
-                        <th className='p-2 border-b border-blue-gray-100 bg-gray-100'>#No</th>
-                        <th className='p-2 border-b border-blue-gray-100 bg-gray-100'>Name</th>
-                        <th className='p-2 border-b border-blue-gray-100 bg-gray-100'>Email</th>
-                        <th className='p-2 border-b border-blue-gray-100 bg-gray-100'>Subject</th>
-                        <th className='p-2 border-b border-blue-gray-100 bg-gray-100'>Message</th>
-                        <th className='p-2 border-b border-blue-gray-100 bg-gray-100'>Action</th>
+                        <th className="border border-white-500 p-2">#No</th>
+                        <th className="border border-white-300 p-2">Name</th>
+                        <th className="border border-white-300 p-2">Email</th>
+                        <th className="border border-white-300 p-2">Subject</th>
+                        <th className="border border-white-300 p-2">Message</th>
+                        <th className="border border-white-300 p-2">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-               
-                    <tr className='border-b border-blue-gray-50'>
-                        <td className='p-2 '>1</td>
-                        <td className='p-2 '>Jhon doe</td>
-                        <td className='p-2 '>jhondoe@mail.com</td>
-                        <td className='p-2 '>Loremipsum</td>
-                        <td className='p-2 '>loremipsum loremipsum loremipsum</td>
-                        <td className='p-2 '>
-                            <div class="inline-flex text-[12px]">
-                                <button class=" bg-green-300 hover:bg-green-400 text-gray-800 py-2 px-4 rounded-l">
-                                    Balas
-                                </button>
-                                <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded-r">
-                                    Arsipkan
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr className='border-b border-blue-gray-50'>
-                        <td className='p-2 '>2</td>
-                        <td className='p-2 '>Jhon doe</td>
-                        <td className='p-2 '>jhondoe@mail.com</td>
-                        <td className='p-2 '>Loremipsum</td>
-                        <td className='p-2 '>loremipsum loremipsum loremipsum</td>
-                        <td className='p-2 '>
-                            <div class="inline-flex text-[12px]">
-                                <button class=" bg-green-300 hover:bg-green-400 text-gray-800 py-2 px-4 rounded-l">
-                                    Balas
-                                </button>
-                                <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded-r">
-                                    Arsipkan
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr className='border-b border-blue-gray-50 '>
-                        <td className='p-2 '>3</td>
-                        <td className='p-2 '>Jhon doe</td>
-                        <td className='p-2 '>jhondoe@mail.com</td>
-                        <td className='p-2 '>Loremipsum</td>
-                        <td className='p-2 '>loremipsum loremipsum loremipsum</td>
-                        <td className='p-2 '>
-                            <div class="inline-flex text-[12px]">
-                                <button class=" bg-green-300 hover:bg-green-400 text-gray-800 py-2 px-4 rounded-l">
-                                    Balas
-                                </button>
-                                <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded-r">
-                                    Arsipkan
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
+                    {data.map((message, index) => (
+                        <tr key={message.id}>
+                            <td className="border border-gray-300 p-2">{index + 1}</td>
+                            <td className="border border-gray-300 p-2">{message.nama}</td>
+                            <td className="border border-gray-300 p-2">{message.email}</td>
+                            <td className="border border-gray-300 p-2">{message.subject}</td>
+                            <td className="border border-gray-300 p-2">{message.pesan}</td>
+                            <td className="border border-gray-300 p-2">
+                                <button className="bg-green-500 text-white px-3 py-2 rounded-l">Balas</button>
+                                <button className="bg-gray-500 text-white px-3 py-2 rounded-r">Arsipkan</button>
+                            </td>
+                        </tr>
+                    ))}
                 </tbody>
+                {/* <tbody>
+                    {messages.map((msg) => (
+                        <tr key={msg.id}>
+                            <td className="border border-gray-300 p-2">{msg.no}</td>
+                            <td className="border border-gray-300 p-2">{msg.name}</td>
+                            <td className="border border-gray-300 p-2">{msg.email}</td>
+                            <td className="border border-gray-300 p-2">{msg.subjet}</td>
+                            <td className="border border-gray-300 p-2">{msg.message}</td>
+                            <td className="border border-gray-300 p-2">{msg.action}</td>
+                        </tr>
+                    ))}
+                </tbody> */}
             </table>
-        </Card>
-      </>
+            <div className="w-full md:w-1/3 px-4">
+                {/* <h1>Testing {{(data.nama)}}</h1> */}
+
+                {/* {
+                    !isLoading && Object.(data.nama).map(key => {
+                        return <>
+                        </>
+                    })
+                } */}
+
+                {/* {
+                    !isLoading && Object.keys(data.phone).map(key => {
+                        return <ItemCard label={key} value={data.phone[key]} key={key} />
+                    })
+                }
+
+                {
+                    !isLoading && Object.keys(data.social).map(key => {
+                        return <ItemCard label={key} value={data.social[key]} key={key} />
+                    })
+                } */}
+
+
+            </div>
+        </>
     );
 }
-  
