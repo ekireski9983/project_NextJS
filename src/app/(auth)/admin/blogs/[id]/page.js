@@ -25,6 +25,7 @@ export default function EditBlogs() {
         {label:'React Native', value:'React Native'},
         {label:'Vlue.js', value:'Vlue.js'},
         {label:'Web Pemograman', value:'Web Pemograman'},
+        {label:'php-programming', value:'php-programming'},
       ]
     // const [categories, setCategories] = useState([]); // State for category options
 
