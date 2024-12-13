@@ -83,8 +83,8 @@ export default function AdminBlogs() {
 
     return (
         <>
-            <Card title="manage of Blogs" style="mt-5" showAddBtn onAddNew={onAddNew}>
-                <h1 className="text-2xl font-bold mb-4 text-center">search blogs</h1>
+            <Card title="List of Blogs" style="mt-5" showAddBtn onAddNew={onAddNew}>
+                <h1 className="text-2xl font-bold mb-4">Search Filter Example</h1>
                 <div className="flex justify-center" >
                 <form
                     onSubmit={handleSearchSubmit}
@@ -125,16 +125,19 @@ export default function AdminBlogs() {
                                     <td className='p-2 text-center'>{item.kategori} </td>
                                     <td className='p-2 text-center'>
                                         <div className="inline-flex text-[12px]">
-                                        <button 
-                                            onClick={()=>gotoEditPage(item._id)}
-                                            className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
-                                            Edit
-                                        </button>
-                                        <button 
-                                            onClick={()=>onConfirmDelete(item._id)}
-                                            className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
-                                            Delete
-                                        </button>
+                                            <button className=" bg-green-300 hover:bg-green-400 text-gray-800 py-2 px-4 rounded-l">
+                                                Detail
+                                            </button>
+                                            <button
+                                                onClick={() => gotoEditPage(item._id)}
+                                                className="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4">
+                                                Edit
+                                            </button>
+                                            <button
+                                                onClick={() => onConfirmDelete(item._id)}
+                                                className="bg-red-300 hover:bg-red-400 text-gray-800 py-2 px-4 rounded-r">
+                                                Delete
+                                            </button>
                                         </div>
                                     </td>
                                 </tr>
