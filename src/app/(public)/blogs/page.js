@@ -81,7 +81,7 @@ export default function Blogs() {
 
   return (
     <>
-      <h1 className="text-2xl font-bold mb-4 text-center">Search Filter Example</h1>
+      <h1 className="text-2xl font-bold mb-4 text-center">Search Filter</h1>
       <div className="flex justify-center" >
 
       <form
